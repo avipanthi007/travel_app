@@ -1,5 +1,5 @@
 class Routepath {
-  static String homeScreen = "/homeScreen";
+  static String homeScreen = "/";
   static String bottomBar = "/bottomBar";
-  static String viewScreen = "/";
+  static String viewScreen = "/viewScreen";
 }

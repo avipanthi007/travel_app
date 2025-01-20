@@ -3,13 +3,14 @@ import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:sizer/sizer.dart';
+import 'package:travel_app/core/utils/injection.dart';
 import 'package:travel_app/services/routing/routing.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
   GoRouter router = AppRouting.router;
-
+  DependecyInjection.injection();
   runApp(MyApp(
     route: router,
   ));

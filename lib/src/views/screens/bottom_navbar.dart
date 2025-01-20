@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:travel_app/core/theme/colors.dart';
-import 'package:travel_app/src/screens/bar_item_page.dart';
-import 'package:travel_app/src/screens/home_page.dart';
-import 'package:travel_app/src/screens/my_page.dart';
-import 'package:travel_app/src/screens/search_page.dart';
+import 'package:travel_app/src/views/screens/bar_item_page.dart';
+import 'package:travel_app/src/views/screens/home_page.dart';
+import 'package:travel_app/src/views/screens/my_page.dart';
+import 'package:travel_app/src/views/screens/search_page.dart';
 
 class BottomNavbar extends StatelessWidget {
   const BottomNavbar({super.key});
@@ -32,8 +32,8 @@ class BottomNavbar extends StatelessWidget {
           items: const [
             BottomNavigationBarItem(label: "Home", icon: Icon(Icons.apps)),
             BottomNavigationBarItem(label: "Home", icon: Icon(Icons.apps)),
-            BottomNavigationBarItem(label: "Home", icon: Icon(Icons.apps)),
-            BottomNavigationBarItem(label: "Home", icon: Icon(Icons.apps)),
+            BottomNavigationBarItem(label: "Search", icon: Icon(Icons.search)),
+            BottomNavigationBarItem(label: "Person", icon: Icon(Icons.person)),
           ],
         ),
       ),

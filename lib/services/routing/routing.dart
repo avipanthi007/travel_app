@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travel_app/services/routing/routepath.dart';
-import 'package:travel_app/src/screens/bottom_navbar.dart';
-import 'package:travel_app/src/screens/home_screen.dart';
-import 'package:travel_app/src/screens/view_screen.dart';
+import 'package:travel_app/src/views/screens/bottom_navbar.dart';
+import 'package:travel_app/src/views/screens/welcome.dart';
+import 'package:travel_app/src/views/screens/view_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

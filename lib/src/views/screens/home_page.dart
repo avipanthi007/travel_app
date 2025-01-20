@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_app/core/theme/colors.dart';
 import 'package:travel_app/core/utils/constants/image_constant.dart';
+import 'package:travel_app/services/routing/routepath.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -60,7 +62,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: TabBar(
                 tabAlignment: TabAlignment.start,
                 labelPadding: EdgeInsets.only(left: 0, right: 20),
-                unselectedLabelColor: AppColors.textGreyColor,
+                unselectedLabelColor: AppColors.black,
                 labelColor: AppColors.black,
                 controller: tabController,
                 isScrollable: true,
@@ -87,15 +89,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(right: 10, left: 10),
-                      height: 35.h,
-                      width: 45.w,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
-                              image: AssetImage(ImageConstant.mountain),
-                              fit: BoxFit.cover)),
+                    return InkWell(
+                      onTap: () {
+                        try {
+                          context.push(Routepath.viewScreen);
+                        } catch (e) {
+                          print("Navigation error: $e");
+                        }
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(right: 10, left: 10),
+                        height: 35.h,
+                        width: 45.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: DecorationImage(
+                                image: AssetImage(ImageConstant.mountain),
+                                fit: BoxFit.cover)),
+                      ),
                     );
                   }),
               const Text("There"),
@@ -154,7 +165,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       Text(
                         image.values.elementAt(index),
                         style: Theme.of(context)
-                            .textTheme 
+                            .textTheme
                             .labelLarge!
                             .copyWith(color: AppColors.textGreyColor),
                       )

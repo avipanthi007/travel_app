@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_app/core/theme/colors.dart';
 import 'package:travel_app/core/utils/constants/image_constant.dart';
 import 'package:travel_app/core/utils/constants/static_text_constant.dart';
-import 'package:travel_app/src/widgets/responsive_button.dart';
+import 'package:travel_app/main.dart';
+import 'package:travel_app/services/routing/routepath.dart';
+import 'package:travel_app/src/controllers/data_controller.dart';
+import 'package:travel_app/src/views/widgets/responsive_button.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,11 +18,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final dataController = Get.find<DataController>();
   List images = [
     ImageConstant.welcomeOne,
     ImageConstant.welcomeTwo,
     ImageConstant.welcomeThree
   ];
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    dataController.fetchTravelData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,8 +83,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(
                           height: 3.h,
                         ),
-                        ResponsiveButton(
-                          width: 30.w,
+                        GestureDetector(
+                          onTap: () {
+                            try {
+                              context.push(Routepath.bottomBar);
+                            } catch (e) {
+                              print("Navigation error: $e");
+                            }
+                          },
+                          child: ResponsiveButton(
+                            width: 30.w,
+                          ),
                         )
                       ],
                     ),

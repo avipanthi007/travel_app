@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:travel_app/core/theme/colors.dart';
 import 'package:travel_app/core/utils/constants/image_constant.dart';
-import 'package:travel_app/src/widgets/responsive_button.dart';
+import 'package:travel_app/src/views/widgets/responsive_button.dart';
 
 class ViewScreen extends StatefulWidget {
   const ViewScreen({super.key});
